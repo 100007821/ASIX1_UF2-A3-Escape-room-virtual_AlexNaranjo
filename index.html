@@ -3,19 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MotorGP Challenge</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Challenge de Moto Gp</title>
+    <link rel="stylesheet" href="css1/styleindex.css">
+    
 </head>
 <body>
     <div class="container">
-        <h1>¿Aceptas el reto de MotoGP?</h1>
-        <img src="img/Portada.jpeg" alt="">
-        <form action="page2.html" method="post">
-            <input type="submit" value="Sí">
-        </form>
-        <form action="indexfinal.html" method="post">
-            <input type="submit" value="No">
-        </form>
+        <h1>¿ACCEPTAS EL RETO DE MOTO GP?</h1>
+        <img src="img3/Portada.jpeg" alt="">
+        <div class="button-container">
+            <button onclick="startProgress()">Sí</button>
+            <button onclick="redirectNo()">No</button>
+        </div>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
     </div>
+
+    <script>
+        function startProgress() {
+            var progressBar = document.getElementById("progress");
+            var width = 0;
+            var interval = setInterval(frame, 50);
+
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    window.location.href = 'page2.html'; // Redirige a la siguiente página cuando la barra llega al 100%
+                } else {
+                    width++;
+                    progressBar.style.width = width + "%";
+                }
+            }
+        }
+
+        function redirectNo() {
+            window.location.href = 'indexfinal.html'; // Redirige a otra página cuando se hace clic en el botón "No"
+        }
+    </script>
 </body>
 </html>

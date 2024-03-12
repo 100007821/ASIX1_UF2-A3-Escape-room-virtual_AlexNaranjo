@@ -1,114 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rompecabezas</title>
-<style>
-    #puzzle_container {
-        width: 762px; /* 254 * 3 */
-        height: 508px; /* 254 * 2 */
-        border: 2px solid black;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .piece {
-        width: 254px;
-        height: 254px;
-        border: 1px solid black;
-        position: absolute;
-        cursor: pointer;
-        user-select: none;
-        touch-action: none;
-    }
-    
-    #checkButton {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 18px;
-        cursor: pointer;
-    }
-</style>
+    <meta charset="UTF-8">
+    <!-- FAVICON ANIMADO -->
+    <link rel="shortcut icon" href="css/icon/favicon.gif" type="image.gif">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" media="(min-width: 1280px) and (max-width: 1400px) and (orientation: landscape)" href="css/mediumWindows.css" />
+    <link rel="stylesheet" media="(min-width: 1024px) and (max-width: 1280px) and (orientation: landscape)" href="css/smallWindows.css" />
+    <link rel="stylesheet" media="(max-width: 1024px) or (orientation: portrait)" href="css/verticalWindows.css" />
+    <!-- CSS PLUGIN INTROJS -->
+    <link rel="stylesheet" href="plugin/introJS/introjs.css">
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="css/icon/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title> Encuentra la pareja </title>
 </head>
+
 <body>
+    <!-- MODAL INICIAL ELEGIR DIFICULTAD -->
+    <div id="modal" class="modalDialog">
+        <div class="modal-content">
+            <div class="modal-header"> Seleccione un nivel de dificultad </div>
+            <div id="modal-body" class="modal-body">
+                <div id="dificultadBtn" class="modal-body">
+                    <button id="facil" class="btn"> Fácil </button>
+                    <button id="medio" class="btn"> Medio </button>
+                    <button id="dificil" class="btn"> Dificil </button>
+                </div>
+                
+                <div id="otherBtn" class="modal-body">
+                    <button id="tablaPuntuaciones" class="btn neutral"> Ver tabla de puntuaciones </button>
+                    <button id="ayuda" class="btn neutral">
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<h1>Rompecabezas</h1>
+    <!-- MODAL GUARDAR PARTIDA -->
+    <div id="modalScore" class="hide">
+        <div class="modal-content">
+            <div class="modal-header"> Guardar puntuación </div>
+            <div id="modal-score-body" class="modal-score-body">
+                <div class='tabla'>
+                    <label class='titlePtos'>Nombre</label>
+                    <label class='titlePtos'>Puntos</label>
+                    <label class='titlePtos'>Tiempo</label>
+                </div>
+                <div class="tabla">
+                    <input id="nombreJugador" type="text">
+                    <label id="puntosPartida"></label>
+                    <label id="tiempoPartida"></label>
+                </div>
+                <div class="tabla footer">
+                    <div></div>
+                    <button id="guardarJugador" class="btn">Guardar</button>
+                    <button id="cancelar" class="btn cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div id="puzzle_container">
-    <div class="piece" id="piece1" style="background-image: url('img1/piece1.jpg'); top: 0px; left: 0px;"></div>
-    <div class="piece" id="piece2" style="background-image: url('img1/piece2.jpg'); top: 0px; left: 254px;"></div>
-    <div class="piece" id="piece3" style="background-image: url('img1/piece3.jpg'); top: 0px; left: 508px;"></div>
-    <div class="piece" id="piece4" style="background-image: url('img1/piece4.jpg'); top: 254px; left: 0px;"></div>
-    <div class="piece" id="piece5" style="background-image: url('img1/piece5.jpg'); top: 254px; left: 254px;"></div>
-    <div class="piece" id="piece6" style="background-image: url('img1/piece6.jpg'); top: 254px; left: 508px;"></div>
-</div>
+    <!-- MODAL TABLA DE PUNTUACIONES -->
+    <div id="modalTableScore" class="hide">
+        <div class="modal-content">
+            <div class="modal-header"> Tabla de puntuaciones </div>
+            <div id="modalTableScoreBody" class="modal-tscore-body">
+                <div id="tPartidas" class="modal-tscore-body"></div>
+                <div class='footer'>
+                    <button id='limpiar' class='btn cancel'>Limpiar historial partidas</button>
+                    <button id='cerrar' class='btn cancel'>Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<button id="checkButton">Verificar</button>
+    <div class="container">
+        <div id="numPartidas" class="numPartidas">
+            Partida nº: <span id="numPartidasValue"></span>
+        </div>
+        <div id="maxScore" class="maxPuntos">
+            Puntuación Max.: <span id="puntosMaxValue">0</span>
+        </div>
+        <div id="score" class="puntos">
+            Puntos: <span id="puntosValue">0</span>
+        </div>
+        <div id="cronometro" class="cronometro">
+            <div class="reloj" id="Minutos">00</div>
+            <div class="reloj" id="Segundos">:00</div>
+        </div>
+        <div id="wrapper" class="wrapper"></div>
+    </div>
 
-<script>
-    let pieces = document.querySelectorAll('.piece');
-    let correctPositions = {
-        piece6: { top: 0, left: 0 },
-        piece5: { top: 0, left: 254 },
-        piece4: { top: 0, left: 508 },
-        piece1: { top: 254, left: 0 },
-        piece2: { top: 254, left: 254 },
-        piece3: { top: 254, left: 508 }
-    };
-
-    function checkPuzzle() {
-        let allInPlace = true;
-        pieces.forEach(piece => {
-            const id = piece.id;
-            const rect = piece.getBoundingClientRect();
-            const expectedTop = correctPositions[id].top;
-            const expectedLeft = correctPositions[id].left;
-            if (Math.abs(rect.top - expectedTop) > 5 || Math.abs(rect.left - expectedLeft) > 5) {
-                allInPlace = false;
-            }
-        });
-        if (allInPlace) {
-            document.getElementById('checkButton').innerText = "¡Completado! Ir a otra página";
-            document.getElementById('checkButton').onclick = function() {
-                window.location.href = 'otra_pagina.html'; // Cambia 'otra_pagina.html' a la URL de tu otra página
-            };
-        }
-    }
-
-    pieces.forEach(piece => {
-        piece.addEventListener('mousedown', function(e) {
-            let offsetX = e.clientX - piece.getBoundingClientRect().left;
-            let offsetY = e.clientY - piece.getBoundingClientRect().top;
-            piece.style.zIndex = 1000;
-
-            function movePiece(e) {
-                let x = e.clientX - offsetX;
-                let y = e.clientY - offsetY;
-
-                if (x < 0) x = 0;
-                if (y < 0) y = 0;
-                if (x + piece.offsetWidth > document.getElementById('puzzle_container').offsetWidth) {
-                    x = document.getElementById('puzzle_container').offsetWidth - piece.offsetWidth;
-                }
-                if (y + piece.offsetHeight > document.getElementById('puzzle_container').offsetHeight) {
-                    y = document.getElementById('puzzle_container').offsetHeight - piece.offsetHeight;
-                }
-
-                piece.style.left = x + 'px';
-                piece.style.top = y + 'px';
-            }
-
-            document.addEventListener('mousemove', movePiece);
-
-            document.addEventListener('mouseup', function() {
-                piece.style.zIndex = 'auto';
-                document.removeEventListener('mousemove', movePiece);
-                checkPuzzle();
-            });
-        });
-    });
-</script>
-
+    <script src="js/cronometro.js"></script>
+    <script src="js/imagenes.js"></script>
+    <script src="js/modalScore.js"></script>
+    <script src="plugin/introJS/intro.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

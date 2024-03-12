@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felicitaciones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Evitar el desplazamiento vertical */
+            background-color: #4CAF50; /* Fondo verde */
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        h1, p {
+            color: #333333; /* Texto oscuro */
+        }
+        .emoji {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: changeColor 10s linear infinite alternate;
+        }
+        @keyframes changeColor {
+            0% { background-color: #4CAF50; }
+            25% { background-color: #FFC107; }
+            50% { background-color: #2196F3; }
+            75% { background-color: #FF5722; }
+            100% { background-color: #4CAF50; }
+        }
+        .image {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Alinear la imagen al centro */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="emoji">🎉</div>
+        <h1>FELICIDADES HAS COMPLETADO EL RETO</h1>
+        <p>¡Bien hecho! Has completado el reto con éxito. ¡Enhorabuena!</p>
+        <img src="img3/Campeon.jpg" alt="" class="image"> <!-- Imagen ajustada -->
+        <br>
+        <a href="index.html" class="button">VOLVER A JUGAR</a>
+    </div>
+</body>
+</html>

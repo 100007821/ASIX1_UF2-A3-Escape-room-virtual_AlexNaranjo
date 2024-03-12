@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de preguntas</title>
-    <link rel="stylesheet" href="css/stylespag6.css"> <!-- Enlaza tu hoja de estilos CSS -->
+    <link rel="stylesheet" href="css1/stylespag6.css"> <!-- Enlaza tu hoja de estilos CSS -->
 </head>
 <body>
     <h1>¡Bienvenido al juego de preguntas!</h1>
@@ -59,7 +59,7 @@
 
         // Verificar si todas las respuestas son correctas
         if ($aciertos == count($preguntas)) {
-            header("Location: page7.php");
+            header("Location: page7.html");
             exit();
         } else {
             echo "<p>Has acertado $aciertos preguntas. Inténtalo de nuevo para responderlas todas correctamente.</p>";
