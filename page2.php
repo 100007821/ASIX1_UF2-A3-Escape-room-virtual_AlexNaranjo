@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoGP Challenge - Página 2</title>
     <link rel="stylesheet" href="css1/stylepag2.css">
-    <style>
-        
-    </style>
+    <link rel="shortcut icon" href="img3/logo.png" type="image/x-icon">
+
 </head>
 <body>
     <div class="container">

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotoGP Challenge - Pagina3</title>
     <link rel="stylesheet" href="css1/styles.css">
+    <link rel="shortcut icon" href="img3/logo.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
@@ -20,6 +21,3 @@
     </div>
 </body>
 </html>
-<?php
-session_start();
-?>
