@@ -1,25 +1,32 @@
-<?php
-// Verificar si el formulario ha sido enviado
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Manejar las respuestas del formulario
-    $numero_del_piloto = $_POST['numero_del_piloto'];
-    $moto_del_piloto = $_POST['moto_del_piloto'];
-    $mundiales_ganados = $_POST['mundiales_ganados'];
-    $edad_del_piloto = $_POST['edad_del_piloto'];
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGP Challenge - Página 4</title>
+    <link rel="stylesheet" href="css1/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MotoGP Challenge</h1>
+        <img src="img3/marc-marquez-gresini.jpeg" alt="" width="80px">
+        <form action="respuestaspage4.php" method="post">
+            <label for="numero_del_piloto">¿Cuál es el número del piloto?</label><br>
+            <input type="text" id="numero_del_piloto" name="numero_del_piloto" required><br>
 
-    // Verificar las respuestas
-    if ($numero_del_piloto == "93" && $moto_del_piloto == "Ducati" && $mundiales_ganados == "8" && $edad_del_piloto == "31") {
-        // Todas las respuestas son correctas, redirigir a la siguiente página
-        header("Location: page5.html");
-        exit();
-    } else {
-        // Al menos una respuesta es incorrecta, redirigir de nuevo al formulario con mensaje de error
-        header("Location: page4.html?error=1");
-        exit();
-    }
-} else {
-    // Si el formulario no ha sido enviado, redirigir de nuevo al formulario
-    header("Location: page4.html");
-    exit();
-}
-?>
+            <label for="moto_del_piloto">¿Cuál es la moto del piloto?</label><br>
+            <input type="text" id="moto_del_piloto" name="moto_del_piloto" required><br>
+
+            <label for="mundiales_ganados">¿Cuántos mundiales ha ganado el piloto?</label><br>
+            <input type="text" id="mundiales_ganados" name="mundiales_ganados" required><br>
+
+            <label for="edad_del_piloto">¿Cuál es la edad del piloto?</label><br>
+            <input type="text" id="edad_del_piloto" name="edad_del_piloto" required><br>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
+
+

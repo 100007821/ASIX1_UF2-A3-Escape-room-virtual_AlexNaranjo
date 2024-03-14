@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="css1/stylespag6.css"> <!-- Enlaza tu hoja de estilos CSS -->
 </head>
 <body>
-    <h1>¡Bienvenido al juego de preguntas!</h1>
+    <h1>¡Bienvenido al juego de preguntas de MotoGP!</h1>
 
     <?php
+    
     // Array de preguntas y respuestas
     $preguntas = array(
         "¿Qué equipo de MotoGP es este?",

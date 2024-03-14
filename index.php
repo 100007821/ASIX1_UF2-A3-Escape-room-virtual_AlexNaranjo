@@ -19,7 +19,7 @@
             <div class="progress" id="progress"></div>
         </div>
     </div>
-
+    
     <script>
         function startProgress() {
             var progressBar = document.getElementById("progress");
@@ -29,7 +29,7 @@
             function frame() {
                 if (width >= 100) {
                     clearInterval(interval);
-                    window.location.href = 'page2.html'; // Redirige a la siguiente página cuando la barra llega al 100%
+                    window.location.href = 'page2.php'; // Redirige a la siguiente página cuando la barra llega al 100%
                 } else {
                     width++;
                     progressBar.style.width = width + "%";
@@ -37,9 +37,6 @@
             }
         }
 
-        function redirectNo() {
-            window.location.href = 'indexfinal.html'; // Redirige a otra página cuando se hace clic en el botón "No"
-        }
     </script>
 </body>
 </html>

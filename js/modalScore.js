@@ -88,7 +88,7 @@ function historialPartidas() {
     };
 
     document.getElementById("cerrar").onclick = function () {
-        window.location.href = "page8.html";
+        window.location.href = "page8.php";
     };
     
 }
