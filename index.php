@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>¿ACCEPTAS EL RETO DE MOTO GP?</h1>
+        <h1>¿ACEPTAS EL RETO DE MOTO GP?</h1>
         <img src="img3/Portada.jpeg" alt="">
         <div class="button-container">
             <button onclick="startProgress()">Sí</button>
@@ -37,6 +38,9 @@
             }
         }
 
+        function redirectNo() {
+            window.location.href = 'indexfinal.html'; // Redirige a indexfinal.php cuando se hace clic en "No"
+        }
     </script>
 </body>
 </html>

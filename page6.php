@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juego de preguntas</title>
-    <link rel="stylesheet" href="css1/stylespag6.css"> <!-- Enlaza tu hoja de estilos CSS -->
+    <title>MotoGP Challenge - Página 6</title>
+    <link rel="stylesheet" href="css1/stylespag6.css">
 </head>
 <body>
     <h1>¡Bienvenido al juego de preguntas de MotoGP!</h1>
@@ -36,14 +36,14 @@
 
     // Respuestas posibles para cada pregunta
     $respuestas_posibles = array(
-        array("Aprilia", "Honda", "Yamaha", "Ducati"),
+        array("Yamaha", "Honda", "Aprilia", "Ducati"),
         array("Marc Márquez", "Jorge Lorenzo", "Giacomo Agostini", "Ángel Nieto"),
-        array("Circuito Montmeló", "Circuito de Jerez", "Circuito de Misano", "Circuito de Losail"),
+        array("Circuito de Jerez", "Circuito Montmeló", "Circuito de Misano", "Circuito de Losail"),
         array("Italia", "España", "Portugal", "Francia"),
         array("Italia", "Qatar", "Malasia", "Valencia"),
         array("Marc Márquez", "Jorge Lorenzo", "Ángel Nieto", "Giacomo Agostini"),
         array("Luca Marini", "Jorge Martín", "Álex Márquez", "Enea Bastianini"),
-        array("Pecco Bagnaia", "Jorge Martín", "Marco Bezzecchi", "Pedro Acosta")
+        array("Jorge Martín", "Pecco Bagnaia", "Marco Bezzecchi", "Pedro Acosta")
     );
 
     // Verificar si se ha enviado el formulario
@@ -69,19 +69,23 @@
     ?>
 
     <form method="post">
-        <?php
-        // Mostrar las preguntas y recoger las respuestas
-        for ($i = 0; $i < count($preguntas); $i++) {
-            echo "<img src='img2/imagen_$i.jpg' alt='Imagen $i'>"; // Añadiendo la imagen
-            echo "<p>{$preguntas[$i]}</p>";
-            echo "<select name='respuesta[]' required>";
-            foreach ($respuestas_posibles[$i] as $respuesta_posible) {
-                echo "<option value='$respuesta_posible'>$respuesta_posible</option>";
+        <div class="grid-container">
+            <?php
+            // Mostrar las preguntas y recoger las respuestas
+            for ($i = 0; $i < count($preguntas); $i++) {
+                echo "<div class='grid-item'>";
+                echo "<img src='img2/imagen_$i.jpg' alt='Imagen $i'>"; // Añadiendo la imagen
+                echo "<p>{$preguntas[$i]}</p>";
+                echo "<select name='respuesta[]' required>";
+                foreach ($respuestas_posibles[$i] as $respuesta_posible) {
+                    echo "<option value='$respuesta_posible'>$respuesta_posible</option>";
+                }
+                echo "</select>";
+                echo "</div>";
             }
-            echo "</select><br><br>";
-        }
-        ?>
-        <input type="submit" value="Comprobar respuestas">
+            ?>
+        </div>
+        <input class="boton" type="submit" value="Comprobar respuestas">
     </form>
 
 </body>

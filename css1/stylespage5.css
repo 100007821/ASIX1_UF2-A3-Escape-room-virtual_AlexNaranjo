@@ -1,59 +1,67 @@
-
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-  h2 {
-    text-align: center;
-    margin-top: 40px;
-    color: #333;
-  }
-  form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  label {
-    display: block;
-    margin: 10px;
-    cursor: pointer;
-  }
-  input[type="radio"] {
-    display: none;
-  }
-  input[type="radio"] + img {
-    border-radius: 10px;
-    border: 3px solid transparent;
-    transition: border-color 0.3s ease-in-out;
-  }
-  input[type="radio"]:checked + img {
-    border-color: #007bff;
-  }
-  button {
-    display: block;
-    margin: 30px auto 0;
-    padding: 15px 40px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease-in-out;
-  }
-  button:hover {
-    background-color: #0056b3;
-  }
-  p {
-    text-align: center;
-    margin-top: 20px;
-    color: red;
-  }
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  animation: changeColor 10s linear infinite;
+}
+
+@keyframes changeColor {
+  0% { background-color: #f8f9fa; } /* Color inicial */
+  25% { background-color: #007bff; } /* Primer color de transición */
+  50% { background-color: #28a745; } /* Segundo color de transición */
+  75% { background-color: #dc3545; } /* Tercer color de transición */
+  100% { background-color: #ffc107; } /* Cuarto color de transición */
+}
+
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  color: #333;
+}
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+label {
+  display: block;
+  margin: 10px;
+  cursor: pointer;
+}
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + img {
+  border-radius: 10px;
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+input[type="radio"]:checked + img {
+  border-color: #007bff;
+}
+button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 15px 40px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease-in-out;
+}
+button:hover {
+  background-color: #0056b3;
+}
+p {
+  text-align: center;
+  margin-top: 20px;
+  color: red;
+}
