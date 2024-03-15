@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>MotoGP Challenge</h1>
+        <h1>SEGUNDO RETO</h1>
+        <p>Tras adivinar el primer reto te propongo unas preguntas sobre el piloto que has acertado anteriormente</p>
         <img src="img3/marc-marquez-gresini.jpeg" alt="" width="80px">
         <form action="respuestaspage4.php" method="post">
             <label for="numero_del_piloto">¿Cuál es el número del piloto?</label><br>

@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <p class="rules" id="rules" style="display:none;"><strong>Normas del Juego:</strong> Deberas solucionar unos cuantos retos que te propongo a continuacion para poder llegar al final y ser un experto en MotoGP</p>
+        <p class="rules" id="rules" style="display:none;"><strong>Normas del Juego:</strong> Deberas solucionar unos cuantos retos que te propongo a continuacion para poder llegar al final y ser un experto en MotoGP. Tendras formularios de preguntas y respuestas de los mejores pilotos de MotoGP hasta llegar a un memory final donde demostraras si eres un experto o no.</p>
     </div>
 
     <script>

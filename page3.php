@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>MotoGP Challenge</h1>
+        <h1><strong>PRIMER RETO</strong></h1>
         <img src="img3/MarcMarquez.jpg" alt="">
         <form action="respuestaspage3.php" method="post">
             <label for="nombre_piloto">Ingresa el nombre de este piloto de MotoGP:</label><br>
